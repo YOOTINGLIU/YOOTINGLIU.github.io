@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/cssreset.css">
+    <style>
+        * {
+            margin: 0 auto;
+        }
+
+        body {
+            max-width: 1200px;
+        }
+        .header {
+            text-align: center;
+            width: 75%;
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+        .header h1 {
+            margin: 15px;
+        }
+        .wrap {
+            width: 80%;
+            display: flex;
+            justify-content: center;
+        }
+        .wrap .box-item:first-child {
+            text-align: right;
+        }
+        .box-item {
+            width: 30%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0;
+        }
+        
+        .item {
+            height: 60px;
+            display: flex;
+            line-height: 1.2em;
+            box-sizing: border-box;
+            align-items: center;
+            margin: 15px 0px;
+        }
+
+        .item img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin: 0px 10px;
+        }
+
+        .pic {
+            margin: 0 20px;
+        }
+
+        .pic img {
+            width: 30%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <h1>title</h1>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nisi, dolores. Lorem ipsum dolor sit amet
+            consectetur adipisicing elit. Perspiciatis nihil pariatur consequatur numquam aspernatur commodi illo. Sunt
+            quisquam beatae ea laborum ad laboriosam voluptate rerum a atque magni? Fugit, sunt.</p>
+    </div>
+    <div class="wrap">
+        <!-- 左側清單資料 -->
+        <ul class="box-item">
+            <li class="item">
+                <div>
+                    <p><b>Lorem ipsum dolor</b> </p>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. </p>
+                </div>
+                <img src="https://picsum.photos/300/200/?random=10">
+            </li>
+            <li class="item">
+                <div>
+                    <p><b>Lorem ipsum dolor</b> </p>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+                </div>
+                <img src="https://picsum.photos/300/200/?random=10">
+            </li>
+            <li class="item">
+                <div>
+                    <p><b>Lorem ipsum dolor</b> </p>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. </p>
+                </div>
+                <img src="https://picsum.photos/300/200/?random=10">
+            </li>
+        </ul>
+        <!-- 中間大圖 -->
+        <img class="pic" src="https://picsum.photos/350/500/?random=10">
+        <!-- 右側清單資料 -->
+        <ul class="box-item">
+            <li class="item">
+                <img src="https://picsum.photos/300/200/?random=10">
+                <div>
+                    <p><b>Lorem ipsum dolor</b> </p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+                </div>
+            </li>
+            <li class="item">
+                <img src="https://picsum.photos/300/200/?random=10">
+                <div>
+                    <p><b>Lorem ipsum dolor</b> </p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+                </div>
+            </li>
+            <li class="item">
+                <img src="https://picsum.photos/300/200/?random=10">
+                <div>
+                    <p><b>Lorem ipsum dolor</b> </p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+                </div>
+            </li>
+
+        </ul>
+    </div>
+
+</body>
+
+</html>
