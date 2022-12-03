@@ -1,0 +1,445 @@
+* {
+    font-family: "微軟正黑體";
+}
+
+.wrap {
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+/* 選單 */
+.menu {
+    max-width: 1280px;
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    padding: 0 12px;
+    align-items: center;
+    font-weight: bolder;
+    box-shadow: 0 3px 5px -5px;
+    position: fixed;
+    box-sizing: border-box;
+    top: 0px;
+    background-color: #fff;
+    z-index: 1;
+}
+
+.menu .logo h1 {
+    font-size: 36px;
+    margin-right: 20px;
+    color: #00c300;
+    font-weight: 900;
+}
+
+.menu .menu-link {
+    display: flex;
+    font-size: 16px;
+}
+
+.menu .menu-link a {
+    margin: 0 14px;
+}
+
+.menu .menu-link a:hover {
+    color: #00c300;
+}
+
+.menu .btn-download button {
+    padding: 8px 25px;
+    color: #fff;
+    width: 140px;
+    border: 0;
+    background-color: #00c300;
+    font-size: 18px;
+    border-radius: 40px;
+}
+
+.menu .btn-download button:hover {
+    background-color: #01e101;
+    cursor: pointer;
+}
+
+/* 認證號碼 */
+.header {
+    background-image: url(./pic/valid-number-2880.jpg);
+    background-size: cover;
+    padding: 50px;
+    display: flex;
+    position: relative;
+    margin-top: 80px;
+}
+
+.header .content .pic {
+    margin-top: 40px;
+    width: 500px;
+}
+
+.header .content p:nth-child(2) {
+    margin: 40px 0;
+    font-size: 36px;
+    line-height: 1.5;
+    font-weight: 800;
+}
+
+.header .content button:nth-child(3) {
+    padding: 8px 25px;
+    color: #fff;
+    width: 240px;
+    border: 0;
+    background-color: #00c300;
+    font-size: 24px;
+    border-radius: 40px;
+    font-weight: 600;
+}
+
+.header .content button:nth-child(3):hover {
+    background-color: #01e101;
+    cursor: pointer;
+}
+
+.header .content p:nth-child(4) {
+    margin-left: 20px;
+    margin-top: 10px;
+    color: #00c300;
+    font-weight: 700;
+}
+
+.header .pic-decorate:nth-child(2) {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+.header .pic-decorate:nth-child(3) {
+    position: absolute;
+    bottom: -2px;
+    right: 0px;
+}
+
+/* 市場調查 */
+.market-research {
+    text-align: center;
+    margin: 72px;
+    padding: 24px;
+    line-height: 1.5;
+}
+
+.market-research em {
+    color: #01e101;
+}
+
+.market-research h2 {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.market-research h2::after {
+    content: "※";
+}
+
+.market-research p:nth-child(2) {
+    font-size: 32px;
+    font-weight: 800;
+}
+
+.market-research p:nth-child(3) {
+    color: #717b8e;
+    font-size: 14px;
+    margin: 10px 0;
+}
+
+/* 三張卡片資料 */
+.card-container {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.card-container .card {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 24px;
+}
+
+.card-container .card:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.card-container article {
+    width: 48%;
+    margin: 0 18px;
+    line-height: 1.5;
+    font-weight: 900;
+}
+
+.card-container .card h2 {
+    margin-bottom: 24px;
+    font-size: 36px;
+    font-weight: 900;
+    color: #00c300;
+}
+
+.card-container .card p {
+    font-size: 27px;
+}
+
+.card-container .card article p:nth-child(3) {
+    color: #717b8e;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.three-column-screen {
+    background-color: #f5f6f9;
+    text-align: center;
+    padding: 60px 40px;
+    line-height: 1.5;
+    font-weight: 600;
+}
+
+.three-column-screen h2 {
+    font-size: 36px;
+    font-weight: 900;
+
+}
+
+.three-column-screen .three-column {
+    display: flex;
+    justify-content: space-around;
+}
+
+.three-column-screen .three-column .item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 240px;
+}
+
+.three-column-screen .three-column .item img {
+    width: 145px;
+}
+
+.three-column-screen .three-column .item h3 {
+    font-size: 18px;
+    font-weight: 900;
+}
+
+.experience-sharing {
+    line-height: 1.5;
+    font-size: 14px;
+    margin: 100px 0;
+}
+
+.experience-sharing h2 {
+    margin-top: 100px;
+    margin-bottom: 60px;
+    font-size: 36px;
+    font-weight: 900;
+    text-align: center;
+}
+
+.experience-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.experience-container .card {
+    display: flex;
+    flex-direction: column;
+    margin: 0 10px;
+    border: 1px solid gray;
+    padding: 24px;
+    padding-bottom: 38px;
+}
+
+.experience-container .card h4 {
+    margin-top: 30px;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.experience-container .card .logo {
+    display: flex;
+    margin-top: 30px;
+    justify-content: flex-end;
+
+}
+
+.business-number {
+    text-align: center;
+    margin: 40px 0;
+    background: #f5f6f9;
+    padding: 36px;
+    color: #00c300;
+    font-weight: 900;
+}
+
+.business-number h2 {
+    font-size: 36px;
+    margin: 30px;
+    color: black;
+}
+
+/* 申請人資料 */
+.application {
+    padding-top: 88px;
+    padding: 0 24px;
+    margin: 100px 0;
+}
+
+.application h3 {
+    font-size: 24px;
+    font-weight: 900;
+}
+
+.application-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.application-content {
+    width: 600px;
+    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-content: flex-start;
+}
+
+.application-content label {
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.application-content input,
+.application-content select {
+    width: 550px;
+    font-size: 16px;
+    padding: 9px 10px;
+    margin: 8px 0;
+    border: 1px solid #b7bcd6;
+    color: #a3a7c9;
+    box-sizing: border-box;
+}
+
+.application-content p {
+    color: #717b8e;
+}
+
+.application p {
+    line-height: 1.45;
+}
+
+.application .submit {
+    display: flex;
+    justify-content: center;
+    margin-top: 54px;
+}
+
+.application .submit input {
+    width: 204px;
+    height: 42px;
+    color: #fff;
+    border: 0;
+    background-color: #00c300;
+    font-size: 18px;
+    border-radius: 40px;
+}
+
+.application .submit input:hover {
+    background-color: #01e101;
+    cursor: pointer;
+}
+
+/* 頁尾 */
+.footer {
+    background-color: #2c323f;
+    color: #fff;
+    padding-top: 28px;
+    padding-bottom: 44px;
+    padding: 28px 24px 44px 24px;
+}
+
+.footer a {
+    color: #b1b4ba;
+}
+
+.footer a:hover {
+    color: #fff;
+}
+
+.footer-main {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #fff;
+}
+
+.footer-main-first {
+    display: flex;
+}
+
+.footer-nav {
+    display: flex;
+    flex-direction: column;
+    margin-right: 80px;
+    line-height: 2;
+}
+
+.footer-main-end .pic-logo {
+    display: flex;
+}
+
+.footer-main-end .pic-logo i {
+    font-size: 30px;
+    margin: 30px 0;
+    margin-left: 32px;
+    color: #b8bbc1;
+}
+
+.footer-main-end .pic-logo i:hover {
+    color: #f5f6f9;
+    cursor: pointer;
+}
+
+.footer-main-end .pic-logo i:first-child {
+    margin-left: 0;
+}
+
+.footer-main-end a {
+    color: #fff;
+}
+
+.footer-main-end a img {
+    margin-top: 20px;
+}
+
+.footer-end {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-end .service {
+    display: flex;
+
+}
+
+.footer-end .language-select {
+    display: flex;
+}
+
+.footer-end .service a {
+    margin-left: 45px;
+}
+
+.footer-end select {
+    width: 200px;
+    font-size: 18px;
+    color: #fff;
+    background: #2c323f;
+    border: #2c323f;
+}
