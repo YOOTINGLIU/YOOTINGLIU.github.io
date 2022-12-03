@@ -28,7 +28,7 @@
 
 .menu .logo {
     display: flex;
-    align-items: center;
+    align-items: center; 
 }
 .menu .logo h1 {
     font-size: 36px;
