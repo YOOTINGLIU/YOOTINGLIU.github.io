@@ -9,19 +9,17 @@
     <title> Whoscall認證號碼</title>
     <link rel="stylesheet" href="./CssReset.css">
     <link rel="stylesheet" href="./style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
- </head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" </head>
 
 <body>
-    <div class="wrap">
-
-        <!-- 選單 -->
+    <!-- 選單 -->
+    <header>
         <nav class="menu">
             <div class="logo">
                 <a href="https://whoscall.com/zh-Hant">
                     <h1>Whoscall</h1>
                 </a>
-                <div class="menu-link">
+                <div class="link-list">
                     <a href="https://whoscall.com/zh-hant/premium">Whoscall 進階版</a>
                     <a href="https://whoscall.com/zh-hant/number">Whoscall 認證號碼</a>
                     <a href="https://whoscall.com/zh-hant/about">認識 Whoscall</a>
@@ -29,72 +27,80 @@
                     <a href="https://gogolook.zendesk.com/hc/zh-tw">常見問題</a>
                 </div>
             </div>
-            <div class="btn-download">
-                <button>
+            <div class="btn">
+                <button class="btn-download">
                     免費下載
                 </button>
             </div>
         </nav>
-
-        <!-- 認證號碼 -->
-        <div class="header">
-            <div class="content">
-                <img class="pic" src="./pic/number-hero-title-1479.png.webp" alt="">
-                <p>電話接通前<br>讓專業形象為你開場! </p>
-                <button>
-                    立刻申請
-                </button>
-                <p>企業方案優惠$200/月 起</p>
-            </div>
+    </header>
+    <!-- KV認證號碼 -->
+    <section class="section-kv">
+        <div class="kv">
             <div class="pic-decorate">
                 <img src="./pic/asset 7.svg" alt="">
+            </div>
+            <div class="kv-content">
+                <img class="pic" src="./pic/number-hero-title-1479.png.webp" alt="">
+                <p>電話接通前<br>讓專業形象為你開場! </p>
+                <a href="#application">
+                    立刻申請
+                </a>
+                <p class="">企業方案優惠$200/月 起</p>
             </div>
             <div class="pic-decorate">
                 <img src="./pic/asset 8.svg" alt="">
             </div>
-
         </div>
-        <!-- 市場調查 -->
-        <div class="market-research">
-            <h2>根據市場調查顯示</h2>
-            <p>超過<em>60%</em>的民眾會選擇忽視或<br>拒接陌生來電。</p>
-            <p>※Pollster 波仕特線上市調 (2014)</p>
-        </div>
-        <!-- 三張卡片 -->
-        <div class="card-container">
-            <div class="card">
-                <article>
-                    <h2>提高<em>2倍</em>電話接聽意願</h2>
-                    <p>Whoscall 認證號碼讓您在全台百萬用戶的來電視窗，顯示公司名稱、姓名等資訊。從此不再是客戶的陌生來電！</p>
-                    <p>※Whoscall 調查 (2018)</p>
-                </article>
-                <div class="pic">
-                    <img src="./pic/asset 0.webp" alt="">
+    </section>
+    <!-- 市場調查 -->
+    <section class="section-market">
+        <div class="market">
+            <div class="title">
+                <h2>根據市場調查顯示</h2>
+                <h3>超過<mark>60%</mark>的民眾會選擇忽視或<br>拒接陌生來電。</h3>
+                <p>※Pollster 波仕特線上市調 (2014)</p>
+            </div>
+            <!-- 資料內容 -->
+            <div class="item-list">
+                <div class="item">
+                    <div class="item-text">
+                        <h3>提高<span>2倍</span>電話接聽意願</h3>
+                        <p>Whoscall 認證號碼讓您在全台百萬用戶的來電視窗，顯示公司名稱、姓名等資訊。從此不再是客戶的陌生來電！</p>
+                        <p class="note">※Whoscall 調查 (2018)</p>
+                    </div>
+                    <div class="pic">
+                        <img src="./pic/asset 0.webp" alt="">
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="item-text">
+                        <h3>創造主動 <span>回撥</span> 的潛在客戶</h3>
+                        <p>在來電記錄中，留下最佳企業形象，創造客戶主動聯繫的契機。</p>
+                    </div>
+                    <div class="pic">
+                        <img src="./pic/asset 1.webp" alt="">
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="item-text">
+                        <h3>眾多來電<span>一秒</span>看見</h3>
+                        <p>不在客戶的通訊錄裡，也能於通話紀錄顯示企業資訊，輕鬆提升工作效率與拓客成功率。</p>
+                    </div>
+                    <div class="pic">
+                        <img src="./pic/asset 2.webp" alt="">
+                    </div>
                 </div>
             </div>
-            <div class="card">
-                <article>
-                    <h2>創造主動回撥的潛在客戶</h2>
-                    <p>在來電記錄中，留下最佳企業形象，創造客戶主動聯繫的契機。</p>
-                </article>
-                <div class="pic">
-                    <img src="./pic/asset 1.webp" alt="">
-                </div>
-            </div>
-            <div class="card">
-                <article>
-                    <h2>眾多來電一秒看見</h2>
-                    <p>不在客戶的通訊錄裡，也能於通話紀錄顯示企業資訊，輕鬆提升工作效率與拓客成功率。</p>
-                </article>
-                <div class="pic">
-                    <img src="./pic/asset 2.webp" alt="">
-                </div>
-            </div>
         </div>
-        <!-- 拓展業務夥伴 -->
-        <div class="three-column-screen">
-            <h2>拓展業務的最佳夥伴！</h2>
-            <div class="three-column">
+    </section>
+    <!-- 拓展業務夥伴 -->
+    <section class="section-partner">
+        <div class="partner">
+            <div class="title">
+                <h2>拓展業務的最佳夥伴！</h2>
+            </div>
+            <div class="item-list">
                 <div class="item">
                     <img src="./pic/asset 3.svg" alt="">
                     <h3>實名認證</h3>
@@ -102,7 +108,6 @@
                 </div>
                 <div class="item">
                     <img src="./pic/asset 4.svg" alt="">
-
                     <h3>支援手機雙系統</h3>
                     <p>支援在 iOS 與 Android 系統上的來電顯示，全台潛在客戶一網打盡。</p>
 
@@ -114,119 +119,136 @@
                 </div>
             </div>
         </div>
-        <!-- 用戶經驗分享 -->
-        <div class="experience-sharing">
-            <h2>用戶經驗分享</h2>
-            <div class="experience-container">
-                <div class="card">
+    </section>
+    <!-- 用戶經驗分享 -->
+    <section class="section-exp">
+        <div class="exp">
+            <div class="title">
+                <h2>用戶經驗分享</h2>
+            </div>
+            <div class="item-list">
+                <div class="item">
                     <div class="pic">
                         <img src="./pic/asset 9.svg" alt="">
                     </div>
-                    <h4>沒想到客戶主動回電!</h4>
-                    <p>申請Whoscall認證號碼後，業務撥打出去的未接來電，客戶更樂意回電了，保險方案的介紹與推動也比以前更即時有效了!</p>
+                    <div class="text">
+                        <h3>沒想到客戶主動回<br>電!</h3>
+                        <p>申請Whoscall認證號碼後，<span>業務撥打出去的未接來電，客戶更樂意回電了</span>，保險方案的介紹與推動也比以前更即時有效了!</p>
+                    </div>
                     <div class="logo">
                         <img src="./pic/cli.png" alt="">
                     </div>
                 </div>
-                <div class="card">
+                <div class="item">
                     <div class="pic">
                         <img src="./pic/asset 9.svg" alt="">
                     </div>
-                    <h4>高接聽率讓合作更有效率</h4>
-                    <p>設定whoscall認證號碼後，電商客戶的接聽率明顯比以前高很多!和客戶討論案子的速度更順利、也更能及時給客戶完整的營運建議</p>
+                    <div class="text">
+                        <h3>高接聽率讓合作更有效率!</h3>
+                        <p>設定whoscall認證號碼後，<span>電商客戶的接聽率明顯比以前高很多!</span>和客戶討論案子的速度更順利、也更能及時給客戶完整的營運建議</p>
+                    </div>
                     <div class="logo"><img src="./pic/911app.png" alt=""></div>
                 </div>
-                <div class="card">
+                <div class="item">
                     <div class="pic">
                         <img src="./pic/asset 9.svg" alt="">
                     </div>
-                    <h4>接聽意願提高，配送更快速</h4>
-                    <p>透過Whoscall Number服務，讓顧客接聽意願變高，也讓我們的物流司機更容易掌握顧客狀況，網購商品能更即時且有效率的送達。</p>
+                    <div class="text">
+                        <h3>接聽意願提高，配送更快速!</h3>
+                        <p>透過Whoscall Number服務，讓顧客接聽意願變高，也讓我們的<span>物流司機更容易掌握顧客狀況</span>，網購商品能更即時且有效率的送達。</p>
+                    </div>
                     <div class="logo"> <img src="./pic/pchome.png" alt=""></div>
                 </div>
             </div>
         </div>
-        <!-- 企業認證號碼 -->
-        <div class="business-number">
+    </section>
+    <!-- 企業認證號碼 -->
+    <section class="section-number">
+        <div class="number">
             <h2>馬上申請企業專屬認證號碼！</h2>
             <p>每筆 $200/月 起，申辦號碼越多、優惠更多！</p>
         </div>
-        <!-- 申請人資料 -->
+    </section>
+    <!-- 申請人資料 -->
+    <section class="section-application">
         <div class="application">
-            <h3>填寫申請人資料</h3>
-            <form action="">
-                <div class="application-container">
-                    <div class="application-content">
+            <div class="title" id="application">
+                <h2>填寫申請人資料</h2>
+            </div>
+            <form action="" >
+                <div class="item-list">
+                    <div class="item">
                         <label for="">真實姓名 *</label>
                         <input type="text" placeholder="真實姓名">
                     </div>
-                    <div class="application-content">
+                    <div class="item">
                         <label for="">公司名稱 *</label>
                         <input type="text" placeholder="公司名稱">
                     </div>
-                    <div class="application-content">
+                    <div class="item">
                         <label for="">電子郵件 *</label>
                         <input type="text" placeholder="電子郵件">
                         <p>將以電子郵件通知，請務必填寫常用電子郵件。</p>
                     </div>
-                    <div class="application-content">
+                    <div class="item">
                         <label for="">統一編號 *</label>
                         <input type="text" placeholder="統一編號">
                     </div>
-                    <div class="application-content">
+                    <div class="item">
                         <label for="">手機號碼 *</label>
                         <input type="text" placeholder="手機號碼">
                         <p>將以號碼致電聯繫或簡訊通知，請務必填寫常用號碼。</p>
                     </div>
-                    <div class="application-content">
+                    <div class="item">
                         <label for="">申請號碼比數(最少須購買三個月以上) *</label>
                         <div>
-
                             <select name="" id="">
                                 <option value="">1-10筆</option>
                                 <option value="">11-50筆</option>
                                 <option value="">50筆以上</option>
                             </select>
                         </div>
-
                     </div>
                 </div>
-
             </form>
             <p>▶ 送出申請後將會透過電子郵件/手機號碼與您聯繫及報價，麻煩您留意。</p>
             <p>▶ 認證號碼顯示仍適用 Whoscall 使用者回報規範，詳情請參閱 服務條款。</p>
             <div class="submit">
                 <input type="submit" value="確認送出">
+
             </div>
         </div>
-        <!-- 頁尾 -->
+    </section>
+
+    <!-- 頁尾 -->
+    <footer>
         <div class="footer">
             <div class="footer-main">
-                <div class="footer-main-first">
-                    <nav class="footer-nav">
-                        <h4>Whoscall</h4>
+                <div class="link-list">
+                    <nav class="link">
+                        <p>Whoscall</p>
                         <a href="#">認識Whoscall</a>
                         <a href="#">Whoscall 進階版</a>
                         <a href="#">Whoscall 專欄</a>
                         <a href="#">Whoscall 認證號碼</a>
                     </nav>
-                    <nav class="footer-nav">
-                        <h4>公司</h4>
+                    <nav class="link">
+                        <p>公司</p>
                         <a href="#">工作機會</a>
-                        <h4>媒體中心</h4>
+                        <p>媒體中心</p>
                         <a href="#">最新消息</a>
                         <a href="#">品牌辨識</a>
                     </nav>
-                    <nav class="footer-nav">
-                        <h4>客戶服務</h4>
+                    <nav class="link">
+                        <p>客戶服務</p>
                         <a href="#">安全性</a>
                         <a href="#">常見問題</a>
                         <a href="#">聯絡我們</a>
                     </nav>
                 </div>
-                <div class="footer-main-end">
-                    <h4>追蹤我們</h4>
-                    <div class="pic-logo">
+                <div class="follow">
+                    <p>追蹤我們</p>
+                    <div class="logo">
                         <i class="fa-brands fa-square-instagram"></i>
                         <i class="fa-brands fa-square-facebook"></i>
                         <i class="fa-brands fa-square-twitter"></i>
@@ -245,7 +267,7 @@
                     <a href="">服務條款</a>
                     <a href="">隱私權政策</a>
                 </div>
-                <div class="language-select">
+                <div class="language">
                     <img src="./pic/Screenshot_1.jpg" alt="">
                     <select name="" id="">
                         <option value="">中文</option>
@@ -259,8 +281,9 @@
                 </div>
             </div>
         </div>
+    </footer>
 
-    </div>
+
 
 </body>
 

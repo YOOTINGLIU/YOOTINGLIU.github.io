@@ -3,7 +3,7 @@
 }
 
 .wrap {
-    max-width: 1280px;
+    width: 1280px;
     margin: 0 auto;
 }
 
@@ -40,7 +40,6 @@
 .menu .menu-link {
     display: flex;
     font-size: 16px;
-
 }
 
 .menu .menu-link a {
@@ -74,6 +73,7 @@
     display: flex;
     position: relative;
     margin-top: 80px;
+    background-position: center center;
 }
 
 .header .content .pic {
@@ -196,6 +196,7 @@
     font-size: 14px;
     margin-top: 10px;
 }
+/* 拓展業務夥伴 */
 
 .three-column-screen {
     background-color: #f5f6f9;
@@ -224,14 +225,14 @@
 }
 
 .three-column-screen .three-column .item img {
-    width: 145px;
+    width: 33%;
 }
 
 .three-column-screen .three-column .item h3 {
     font-size: 18px;
     font-weight: 900;
 }
-
+/* 用戶經驗分享 */
 .experience-sharing {
     line-height: 1.5;
     font-size: 14px;
@@ -258,6 +259,9 @@
     border: 1px solid gray;
     padding: 24px;
     padding-bottom: 38px;
+}
+.experience-container .card .pic img{
+    transform: scaleX(-1);
 }
 
 .experience-container .card h4 {
