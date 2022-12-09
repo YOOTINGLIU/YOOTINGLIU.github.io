@@ -1,0 +1,187 @@
+img {
+    vertical-align: bottom;
+}
+
+/* 樣式 */
+section {
+    width: 960px;
+    margin: 0 auto;
+    margin-top: 200px;
+}
+
+section .main-kv {
+    position: relative;
+}
+
+section .main-kv .main-pic {
+    position: relative;
+    z-index: -1;
+}
+
+section .main-kv .main-pic img {
+    width: 660px;
+}
+
+section .main-kv .main-title {
+    width: 350px;
+    line-height: 1.5;
+    color: #fff;
+    box-sizing: border-box;
+    position: absolute;
+}
+
+section .main-kv .main-title .title {
+    background-color: #bb0404;
+    display: flex;
+    align-items: center;
+}
+
+section .main-kv .main-title .title .number {
+    width: 90px;
+    height: 90px;
+}
+
+section .main-kv .main-title .title h3 {
+    font-size: 100px;
+    display: inline-block;
+    line-height: 1;
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+}
+
+section .main-kv .main-title .title h2 {
+    font-size: 45px;
+    display: inline;
+}
+
+section .main-kv .main-title .text {
+    background: #000;
+    padding: 30px 20px;
+}
+
+section .main-kv .main-title .text h4 {
+    font-size: 28px;
+    font-weight: 900;
+
+}
+
+section .main-kv .main-title .text p {
+    font-size: 18px;
+}
+
+section .main-kv .bgc-gray {
+    width: 400px;
+    height: 250px;
+    background-color: #ccc;
+    position: absolute;
+    z-index: -2;
+}
+
+section .main-kv .yt {
+    position: absolute;
+}
+
+section .main-textconcent {
+    width: 660px;
+    padding: 20px 24px;
+    background: #eee;
+    line-height: 1.2;
+    box-sizing: border-box;
+    position: relative;
+}
+
+section .main-textconcent h4 {
+    font-size: 20px;
+    color: #c63535;
+    font-weight: 900;
+    display: flex;
+    align-items: center;
+}
+
+section .main-textconcent h4::after {
+    content: "";
+    background-color: #aa291e;
+    height: 1.5px;
+    display: block;
+    flex-grow: 1;
+    margin-left: 20px 0;
+}
+
+section .main-textconcent ul .li-title {
+    background-color: #000;
+    color: #fff;
+    padding: 0px 5px;
+    display: inline-block;
+    border-radius: 2px;
+    margin: 5px 0;
+    vertical-align: middle;
+}
+
+section .main-textconcent ul .li-title h5 {
+    font-size: 18px;
+}
+
+section .main-textconcent ul li {
+    color: #6e6e6e;
+    margin-left: 22px;
+    list-style-type: disc
+}
+
+section .main-textconcent ul li::marker {
+    color: red;
+}
+
+/* 以上為樣式 */
+
+
+/* 奇數定位 */
+section:nth-child(odd) .main-kv .main-pic {
+    left: 200px;
+    top: 30px;
+}
+
+section:nth-child(odd) .main-kv .main-title {
+    top: -60px;
+
+}
+
+section:nth-child(odd) .main-kv .bgc-gray {
+    top: -50px;
+    right: 20px;
+}
+
+section:nth-child(odd) .main-kv .yt {
+    right: 80px;
+    bottom: 150px;
+}
+
+/* 以上為奇數定位 */
+
+/* 偶數定位 */
+section:nth-child(even) .main-textconcent {
+    left: 300px;
+    bottom: 30px;
+}
+
+
+section:nth-child(even) .main-kv .main-title {
+    top: -90px;
+    right: 30px;
+}
+
+section:nth-child(even) .main-kv .main-title .title {
+    flex-direction: row-reverse;
+}
+
+section:nth-child(even) .main-kv .bgc-gray {
+    width: 400px;
+    height: 350px;
+    top: -45px;
+    right: 200px;
+}
+
+
+section:nth-child(even) .main-kv .yt {
+    top: 50%;
+    left: -10px;
+}
