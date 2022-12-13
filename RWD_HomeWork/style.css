@@ -1,4 +1,8 @@
-.img {
+:root{
+    --col-count: 3;
+
+}
+img {
     vertical-align: middle;
 }
 
@@ -9,9 +13,12 @@
 .col {
     margin: auto;
     display: flex;
+    margin-bottom: 30px;
 }
 
-.pic {}
+.pic {
+}
+
 
 .pic img {
     width: 100%;
@@ -29,28 +36,23 @@
         max-width: 1200px;
         display: flex;
         flex-wrap: wrap;
-        --col-count: 3;
     }
 
     .col {
-        width: calc(var(100% / --col-count - 30px));
-        width: 33.3333%;
+        width: calc(100% / var(--col-count) - 20px);
         flex-direction: column;
-        margin-bottom: 30px;
     }
 
     .text {
         width: 100%;
     }
-
-
 }
 
 
 @media screen and (min-width:1200px) {
 
     .col {
-        width: 50%;
+        --col-count:2;
         flex-direction: row;
     }
 
@@ -59,16 +61,23 @@
     }
 
     .col:nth-child(n+3) {
-        width: 25%;
+        --col-count:4;
         flex-direction: column;
         position: relative;
+        opacity: 1;
     }
-
+    .col:nth-child(n+3):hover{
+        opacity: .8;
+    }
     .col:nth-child(n+3) .text {
         width: 100%;
-        /* width: 25%; */
         position: absolute;
         color: #fff;
+        opacity: 0;
+        transition: .5s;
+    }
+    .col:nth-child(n+3) .text:hover {
+        opacity: 1;
     }
 
 
