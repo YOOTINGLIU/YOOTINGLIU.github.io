@@ -6,30 +6,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./CssReset.css">
+    <link rel="stylesheet" href="./style.css">
+
 </head>
 
 <body>
     <div class="wrap">
         <div class="display">
-            <input type="text" readonly="readonly">
-            <input type="text" readonly="readonly">
+            <label for="">密碼範圍:</label>
+            <input type="text" readonly="readonly" class="display-range" value="1-100">
+            <label for="">輸入密碼:</label>
+            <input type="text" readonly="readonly"  class="num-input" >
         </div>
-        <div class="num-btn">
-            <button class="btn num-btn">1</button>
-            <button class="btn num-btn">2</button>
-            <button class="btn num-btn">3</button>
-            <button class="btn num-btn">4</button>
-            <button class="btn num-btn">5</button>
-            <button class="btn num-btn">6</button>
-            <button class="btn num-btn">7</button>
-            <button class="btn num-btn">8</button>
-            <button class="btn num-btn">9</button>
-            <button class="btn num-btn">0</button>
-
-        </div>
-        <div class="inpt-btn">
-            <button>重新玩</button>
-            <button>輸入</button>
+        <div class="btn">
+            <div class="num-btn">1</div>
+            <div class="num-btn">2</div>
+            <div class="num-btn">3</div>
+            <div class="num-btn">4</div>
+            <div class="num-btn">5</div>
+            <div class="num-btn">6</div>
+            <div class="num-btn">7</div>
+            <div class="num-btn">8</div>
+            <div class="num-btn">9</div>
+            <div class="num-btn">0</div>    
+            <div class="reset">reset</div>
+            <div class="gusse">猜</div>
         </div>
     </div>
 
