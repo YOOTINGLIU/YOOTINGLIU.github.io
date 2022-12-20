@@ -5,12 +5,12 @@ let gusse_num = getRandomNum(min_num, max_num);
 //#endregion
 
 //#region  DOM
-let display_range = document.querySelector('.display-range');
-let num_input = document.querySelector('.num-input');
-let num_btn = document.querySelector('.btn');
-let num_btnAll = document.querySelectorAll(' .num-btn');
-let reset_btn = document.querySelector('.reset');
-let gusse_btn = document.querySelector('.gusse');
+const display_range = document.querySelector('.display-range');
+const num_input = document.querySelector('.num-input');
+const num_btn = document.querySelector('.btn');
+const num_btnAll = document.querySelectorAll(' .num-btn');
+const reset_btn = document.querySelector('.reset');
+const gusse_btn = document.querySelector('.gusse');
 //#endregion
 
 
