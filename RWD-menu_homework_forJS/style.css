@@ -154,7 +154,7 @@
     }
 
     .main-nav .son-nav>li:hover {
-        background-color: rgb(89, 92, 94);
+        background-color: rgba(23, 25, 27, 0.742);
     }
 
 }
