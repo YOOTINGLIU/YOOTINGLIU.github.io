@@ -2180,28 +2180,21 @@
             tbody = document.createElement('tbody');
 
 
-
-
             btnCreateHeroArray.addEventListener("click", function () {
                 //alert("從DOM建立英雄人物陣列資料後清除container");
 
                 alert("從DOM建立英雄人物陣列資料成功！");
 
                 //1.從DOM建立英雄人物資料
-                let herodata = document.querySelectorAll('.card-body');
+                let herodata = document.querySelectorAll('.card');
                 herodata.forEach((card, i) => {
                     let title = card.querySelector('.card-title').textContent;
+                    let img = card.querySelector('.card-img-top').src;
                     let title_head = title.indexOf(':');
                     let title_foot = title.indexOf('-');
                     let title_name = title.substring(title_head + 2, title_foot);
                     let title_text = card.querySelector('.card-text').innerText;
-                    heroArray.push({ index: i, name: title_name, text: title_text });
-                })
-                let img = document.querySelectorAll('.card-img-top');
-                img.forEach(x => {
-                    heroArray.forEach(y => {
-                        y.src = x.src;
-                    });
+                    heroArray.push({ index: i, name: title_name, text: title_text, src:img});
                 })
 
 

@@ -1,0 +1,352 @@
+:root {
+    --btn_gray: #5d6678;
+    --kv_green: #1FDE82;
+    --P_color: #5D6678;
+    --bgc_gray: #F8F9FA;
+}
+
+* {
+    font-family: 'Roboto';
+}
+
+body {
+    background-color: var(--bgc_gray);
+}
+
+img {
+    vertical-align: middle;
+}
+
+.container {
+    box-sizing: border-box;
+}
+
+button.btn1 {
+    background-color: rgba(255, 255, 255, 0);
+    border-radius: 5px;
+    padding: 8px 15px;
+    border: 1px solid #dcdfe5;
+    transition: .3s;
+}
+
+button.btn1:hover {
+    background-color: var(--kv_green);
+    color: #fff;
+}
+
+button.btn2 {
+    background-color: var(--kv_green);
+    border-radius: 5px;
+    padding: 8px 15px;
+    border: 1px solid #dcdfe5;
+    transition: .3s;
+    color: #fff;
+}
+
+button.btn2:hover {
+    background-color: #5d6678;
+    color: #fff;
+}
+
+
+/* --------------------munu------------------- */
+.header {
+    width: 100%;
+}
+
+.header .menu {
+    margin: 0 auto;
+    max-width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header .menu .menu-Logo {}
+
+.header .menu .menu-Logo a {}
+
+.header .menu .menu-Logo a img {
+    width: 100%;
+}
+
+.header .menu .menu-Logo a h1 {
+    display: none;
+}
+
+.header .menu .hb {
+    display: none;
+}
+
+.header .menu .link-list a {
+    color: var(--P_color);
+}
+
+/* -----------menu--------------- */
+/* --------creativity--------------- */
+.creativity .row {
+    align-items: center;
+    margin: 0 auto;
+}
+
+.creativity .pic {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.creativity .text {
+    width: 100%;
+}
+
+
+
+.creativity .text h2 {
+    font-size: 40px;
+    line-height: 1.5;
+}
+
+.creativity .text p {
+    margin: 30px 0;
+    color: var(--P_color);
+}
+
+/* --------creativity--------------- */
+.provide .title {
+    font-size: 42px;
+    line-height: 1.2;
+}
+
+.provide .card {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 42px 40px;
+}
+
+.provide .card .text p:first-child {
+    font-size: 22px;
+    margin: 30px 0;
+}
+
+.provide .card .text p:last-child {
+    font-size: 14px;
+    color: var(--P_color);
+    line-height: 2;
+}
+
+.provide .card .read {
+    margin: 30px 0px;
+}
+
+.provide .card .read a {
+    transition: .3s;
+}
+
+.provide .card .read a:hover {
+    color: var(--kv_green);
+}
+
+/* -------------ifyou------------------ */
+.ifyou .row {
+    align-items: center;
+    margin: 0 auto;
+    justify-content: space-between;
+}
+
+.ifyou .pic {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+
+.ifyou .text h2 {
+    font-size: 42px;
+    line-height: 1.5;
+}
+
+.ifyou .text p {
+    margin: 30px 0;
+    color: var(--P_color);
+}
+
+/* -------------ifyou------------------ */
+
+/* ----------------projects------------------- */
+.project {
+    background-color: #2570FF;
+}
+
+.project .container {
+    padding: 55px 50px;
+}
+
+/* .project>.container>.row>.col-12:last-child{
+    margin-left: 50px;
+} */
+.project .number-card {
+    background-color: #3F81FF;
+    box-sizing: border-box;
+    padding: 15px 15px;
+    line-height: 2;
+    color: #fff;
+    border-radius: 10px;
+}
+
+.project .number-card p:first-child {
+    font-size: 58px;
+}
+
+.project .number-card p:last-child {
+    font-size: 14px;
+    padding-left: 15px;
+}
+
+.project .row .col-12:last-child {
+    display: flex;
+    align-items: center;
+    line-height: 2;
+}
+
+.project .text {
+    color: #fff;
+    margin-left: 80px;
+}
+
+.project .text h3 {
+    font-size: 42px;
+    line-height: 1.5;
+}
+
+.project .text p {
+    font-size: 14px;
+    margin: 30px 0;
+}
+
+.project .text button {
+    color: #fff;
+    font-size: 14px;
+}
+
+/* ----------------projects------------------- */
+/* ----------------steps--------------------- */
+.step {
+    padding: 80px 0;
+    background-color: #fff;
+}
+
+.step .container .row:first-child {
+    margin-bottom: 50px;
+}
+
+.step .row {
+    align-items: center;
+}
+
+.step .title {
+    font-size: 42px;
+}
+
+.step .text h4 {
+    font-size: 22px;
+    line-height: 1.2;
+    width: 90%;
+}
+
+.step .text p {
+    color: var(--P_color);
+    line-height: 2;
+    font-size: 14px;
+}
+
+/* ----------------steps--------------------- */
+/* ------------------team---------------- */
+.team {
+    padding: 60px 0px;
+}
+
+.team>.container .row:first-child {
+    display: flex;
+    align-items: center;
+
+}
+
+
+
+.team .btn {
+    display: flex;
+    justify-content: end;
+    font-size: 14px;
+
+}
+
+.team .item {
+    box-sizing: border-box;
+    position: relative;
+}
+
+.team .item .pic {
+    width: 100%;
+}
+.team .item .pic img {
+    width: 100%;
+}
+
+.team .item .text .title h4 {
+    font-size: 42px;
+}
+.team .item .text {
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    background-color: var(--kv_green);
+    color: #fff;
+   
+}
+
+.team .item:hover .text {
+    display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.team .item .text a {
+    color: #fff;
+    font-size: 14px;
+}
+
+/* ------------------team---------------- */
+
+
+@media screen and (width<768px) {
+    .header .menu .hb {
+        display: block;
+        width: 40px;
+        height: 40px;
+        box-sizing: border-box;
+        background-color: var(--kv_green);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    .header .menu .hb span {
+        width: 80%;
+        height: 2px;
+        background-color: #fff;
+
+    }
+
+}
+
+@media screen and (768px<=width) {
+    .creativity .row:nth-child(even) {
+        flex-direction: row-reverse;
+
+    }
+
+}
