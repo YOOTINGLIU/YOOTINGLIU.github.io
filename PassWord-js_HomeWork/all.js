@@ -7,7 +7,7 @@ let gusse_num = getRandomNum(min_num, max_num);
 //#region  DOM
 const display_range = document.querySelector('.display-range');
 const num_input = document.querySelector('.num-input');
-const num_btn = document.querySelector('.btn');
+const btn = document.querySelector('.btn');
 const num_btnAll = document.querySelectorAll(' .num-btn');
 const reset_btn = document.querySelector('.reset');
 const gusse_btn = document.querySelector('.gusse');
@@ -15,7 +15,7 @@ const gusse_btn = document.querySelector('.gusse');
 
 
 //#region 監聽事件
-// num_btn.addEventListener('click', GetNum);//數字按鈕顯示到輸入密碼框
+// btn.addEventListener('click', GetNum1);//數字按鈕顯示到輸入密碼框
 num_btnAll.forEach(e => e.addEventListener('click', getNum));//數字按鈕顯示到輸入密碼框
 gusse_btn.addEventListener('click', guseeNum);//猜測數字
 reset_btn.addEventListener('click', resetGame);//reset

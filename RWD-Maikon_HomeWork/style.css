@@ -181,9 +181,7 @@ button.btn2:hover {
     padding: 55px 50px;
 }
 
-/* .project>.container>.row>.col-12:last-child{
-    margin-left: 50px;
-} */
+
 .project .number-card {
     background-color: #3F81FF;
     box-sizing: border-box;
@@ -288,6 +286,7 @@ button.btn2:hover {
 .team .item .pic {
     width: 100%;
 }
+
 .team .item .pic img {
     width: 100%;
 }
@@ -295,6 +294,7 @@ button.btn2:hover {
 .team .item .text .title h4 {
     font-size: 42px;
 }
+
 .team .item .text {
     display: none;
     position: absolute;
@@ -303,7 +303,7 @@ button.btn2:hover {
     top: 0px;
     background-color: var(--kv_green);
     color: #fff;
-   
+    padding: 10px;
 }
 
 .team .item:hover .text {
@@ -319,6 +319,124 @@ button.btn2:hover {
 }
 
 /* ------------------team---------------- */
+
+/* ------------------consultation---------- */
+.consultation {
+    background-color: #fdfdfd;
+    padding: 90px 0;
+}
+
+.consultation .row {
+    align-items: center;
+}
+
+.consultation .text {
+    box-sizing: border-box;
+    width: 80%;
+    padding: 40px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    border-radius: 10px;
+}
+
+.consultation .text h3 {
+    font-size: 42px;
+    margin-bottom: 30px;
+}
+
+.consultation .text form {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.consultation .text form input {
+    margin-bottom: 20px;
+    align-content: center;
+    padding: 5px 10px;
+
+
+}
+
+.consultation .text form textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 5px 9px;
+    margin-bottom: 20px;
+}
+
+/* ------------------consultation---------- */
+
+/* ------------Subscribe--------------- */
+.Subscribe {
+    padding: 80px 0px;
+}
+
+.Subscribe .row {
+    text-align: center;
+}
+
+.Subscribe h3 {
+    font-size: 42px;
+}
+
+.Subscribe .email {
+    display: flex;
+    justify-content: center;
+}
+
+.Subscribe .email input {
+    width: 45%;
+    padding: 8px 10px;
+    color: var(--P_color);
+    border: 0px;
+
+}
+
+.Subscribe .email button {
+    font-size: 16px;
+}
+
+/* ------------Subscribe--------------- */
+/* ----------footer----------- */
+.main-footer {
+    padding: 43px 0 25px;
+}
+
+.main-footer .logo {}
+
+.main-footer .phone {
+    margin-top: 20px;
+
+}
+.main-footer .phone a{
+    font-size: 14px;
+    margin: 0 10px;
+}
+.main-footer .phone a span{
+    color: var(--kv_green);
+}
+.main-footer .title{
+padding-top: 20px;
+    font-size: 22px;
+
+}
+.main-footer .link-list{
+    margin-top: 30px;
+}
+.main-footer .link-list li{
+    margin: 10px 0;
+}
+.main-footer .link-list li a{
+    font-size: 14px;
+ color: var(--P_color);
+}
+
+
+/* ----------footer----------- */
+
+
+
 
 
 @media screen and (width<768px) {
