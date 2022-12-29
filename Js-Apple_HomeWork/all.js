@@ -2,7 +2,8 @@
 const appleData = [
 
     {
-        product: 'ipad',
+        productName: 'ipad',
+        img:['./pic/444'],
         color: [
             {色碼: '#f0a',url: './pic/455'},
             {色碼: '#f0a',url: './pic/455'},
