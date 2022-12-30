@@ -1,3 +1,30 @@
-button{
+button {
     display: inline-block;
+}
+
+button {
+    padding: 0;
+    border: 0;
+}
+
+.color {
+    width: 40px;
+    height: 40px;
+    background-color: #f00;
+    border: 2px #0000 solid;
+    border-radius: 50%;
+}
+
+.specification {
+    border: 2px #0000 solid;
+}
+
+.color:focus {
+    border: 1px rgba(4, 4, 2, 0.559) solid;
+    position: relative;
+    bottom: 5px;
+}
+
+.specification:focus {
+    border: 2px rgba(54, 54, 53, 0.559) solid;
 }

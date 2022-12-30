@@ -14,37 +14,70 @@
 <body>
     <div class="container">
         <div class=" d-flex  btn-group btn-group-lg" role="group" aria-label="Large button group">
-            <button type="button" class="btn btn-outline-dark">IPhone</button>
-            <button type="button" class="btn btn-outline-dark">IPad</button>
-            <button type="button" class="btn btn-outline-dark">IMac</button>
+            <button  class="btn  btn-outline-dark page_btn" data-page="IPhone">IPhone</button>
+            <button  class="btn  btn-outline-dark page_btn" data-page="IPadPro">IPadPro</button>
+            <button  class="btn  btn-outline-dark page_btn" data-page="IMac">IMac</button>
         </div>
         <div class="row">
-            <div class="kv-pic col-12 col-md-6">
-                <img src="" alt="">
+            <div class="kv-pic mt-5 col-12 col-md-6">
+                <div id="carouselExample" class="carousel slide">
+                    <div class="carousel-inner">
+                      <!-- <div class="carousel-item active">
+                        <img src="./pic/imac/hero_13__d1tfa5zby7e6_large_2x.jpg" class="d-block w-100" alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="./pic/imac/mbp-silver-select-202206_GEO_TW.jpg" class="d-block w-100" alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="./pic/imac/mbp-silver-select-202206_GEO_TW.jpg" class="d-block w-100" alt="...">
+                      </div> -->
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                  </div>
             </div> 
             <div class="text col-12 col-md-6">
-                <div class="row color-block">
-                    <div class="color col-12 col-md-4"></div>
+                
+                <div class="color-text">
+                    <h2 class=" mt-5">外觀。 挑選你喜愛的外觀。</h2>
+                    <p>顏色</p>
                 </div>
-                <div class="row specification-block">
-                    <div class="specification col-12 col-md-4 "></div>
-                    <div class="specification col-12 col-md-4 "></div>
-                    <div class="specification col-12 col-md-4 "></div>
+                <div class="d-flex  mt-0  color-block ">
+                        <!-- <button class="color m-1"> </button>
+                        <button class="color m-1"> </button>
+                        <button class="color m-1"> </button> -->
                 </div>
-                <div class="row">
-                     <div class="price col-12 col-md-4"></div>
-                     <div class="price col-12 col-md-4"></div>
-                     <div class="price col-12 col-md-4"></div>
+                <div class="specification-text">
+                    <h2>儲存裝置。 你需要多少儲存空間？</h2>
                 </div>
-
+                <div class="row mt-5  specification-block">
+                    <!-- <button class="specification mt-4 d-flex justify-content-around p-3 col-12   rounded-pill ">
+                        <div class="capacity">64gb</div>
+                        <div class="price">12800</div>
+                    </button>
+                    <button class="specification mt-4 d-flex justify-content-around p-3 col-12   rounded-pill ">
+                        <div class="storage">64gb</div>
+                        <div class="price">12800</div>
+                    </button> -->
+                </div>
+                <div class="">
+                    <h3 class="fs-3 text mt-3  mb-2 ">價格試算</h3>
+                    <h4 class="fs-2 text ml-4 ms-5 dipslay-price"></h4>
+                </div>
             </div>
         </div>
 
-
     </div>
+    <script src="./all.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
-        crossorigin="anonymous"></script>
+    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+    crossorigin="anonymous"></script>
 </body>
 
 </html>
