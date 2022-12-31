@@ -66,7 +66,7 @@ window.onload = () => {
  */
 function ChangePage(e) {
     let pageStr = e.target.dataset.page;
-    newFunction(pageStr);    
+    UpPage(pageStr);    
 
 }
 /**
