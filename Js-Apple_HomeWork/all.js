@@ -42,7 +42,7 @@ const appleData = [
         ]
     },
 ];
-let pageData;
+let pageData=[];
 //#endregion
 //#region DOM
 const page_Btns = document.querySelectorAll('.page_btn');
@@ -53,32 +53,42 @@ let price,specification,colorBtns,dipslay,spec_btns;
 //#endregion
 //#region windowonlord
 window.onload = () => {
+    UpPage("IPhone");//初始化頁面 顯示IPhone
     page_Btns.forEach(page_btn => page_btn.addEventListener('click', ChangePage));
 };
 //#endregion
 //#region 函式
 /**
- * 描述 更新頁面
+ * 描述 更換產品頁面
  * @date 2022-12-30
  * @param {any} e
  * @returns {any}
  */
 function ChangePage(e) {
-    pageData = [];
     let pageStr = e.target.dataset.page;
+    newFunction(pageStr);    
+
+}
+/**
+ * 描述更新頁面
+ * @date 2022-12-31
+ * @param {any} pageStr 輸入字串做篩選條件
+ * @returns {any}
+ */
+function UpPage(pageStr) {
+    pageData = [];
     pageData = appleData.filter(x => x.productName == pageStr);
     addCarousel(pageData[0].kv_img);
     addColorBtn(pageData[0].color);
     addSpecificationBtn(pageData[0].specification);
-    getDom()
-    dipslay.innerText=spec_btns[0].querySelector('.price').innerText;//顯示第一筆規格價錢
-    colorBtns.forEach(colorBtn => colorBtn.addEventListener('click', function(e){
-        let colorRGBstr=e.target.dataset.colorrgb;
-        colorChange(colorRGBstr,pageData);
+    getDom();
+    dipslay.innerText = spec_btns[0].querySelector('.price').innerText; //顯示第一筆規格價錢
+    colorBtns.forEach(colorBtn => colorBtn.addEventListener('click', function (e) {
+        let colorRGBstr = e.target.dataset.colorrgb;
+        colorChange(colorRGBstr, pageData);
     }));
     console.log(spec_btns);
-    spec_btns.forEach(spec_btn=>spec_btn.addEventListener('click',dipslay_price));    
-
+    spec_btns.forEach(spec_btn => spec_btn.addEventListener('click', dipslay_price));
 }
 
 /**
@@ -117,8 +127,8 @@ function addSpecificationBtn(specification) {
     specification_Block.innerHTML = '';
     specification.forEach(x => {
         let str = `<button class="specification spec_btn mt-4 d-flex justify-content-around p-3  rounded-pill " col-12 data-nt="${x.price}">
-                            <div class="capacity">${x.storage}</div>
-                            <div class="price">NT$${x.price}</div>
+                            <div data-nt="${x.price}" class="capacity">${x.storage}</div>
+                            <div data-nt="${x.price}" class="price">NT$${x.price}</div>
                    </button>`;
         specification_Block.innerHTML += str;
     })
