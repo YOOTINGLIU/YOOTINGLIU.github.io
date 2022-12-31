@@ -42,18 +42,18 @@ const appleData = [
         ]
     },
 ];
-let pageData=[];
+let pageData = [];
 //#endregion
 //#region DOM
 const page_Btns = document.querySelectorAll('.page_btn');
-const carousel = document.querySelector('.carousel-inner');
+const carousel = document.querySelector('.carousel');
 const color_Block = document.querySelector('.color-block');
 const specification_Block = document.querySelector('.specification-block');
-let price,specification,colorBtns,dipslay,spec_btns;
+let price, specification, colorBtns, dipslay, spec_btns;
 //#endregion
 //#region windowonlord
 window.onload = () => {
-    UpPage("IPhone");//初始化頁面 顯示IPhone
+    // UpPage("IPhone");//初始化頁面 顯示IPhone
     page_Btns.forEach(page_btn => page_btn.addEventListener('click', ChangePage));
 };
 //#endregion
@@ -66,8 +66,7 @@ window.onload = () => {
  */
 function ChangePage(e) {
     let pageStr = e.target.dataset.page;
-    UpPage(pageStr);    
-
+    UpPage(pageStr);
 }
 /**
  * 描述更新頁面
@@ -99,9 +98,19 @@ function UpPage(pageStr) {
  */
 function addCarousel(pageData) {//增加投影片
     carousel.innerHTML = "";
+    carousel.innerHTML = `<div class="carousel-inner"></div><button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+    </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>`;
+    const carousel_inner = document.querySelector('.carousel-inner');
+    carousel_inner.innerHTML="";
     pageData.forEach(img => {
         let str = `<div class="carousel-item active"><img src="${img}" class="d-block w-100" alt="..."></div>`;
-        carousel.innerHTML += str;
+        carousel_inner.innerHTML += str;
     })
 }
 /**
@@ -141,9 +150,9 @@ function addSpecificationBtn(specification) {
 function getDom() {
     price = document.querySelector('.price');
     colorBtns = document.querySelectorAll('.color');
-    spec_btns=document.querySelectorAll('.spec_btn');
+    spec_btns = document.querySelectorAll('.spec_btn');
     dipslay = document.querySelector('.dipslay-price');
-    
+
 }
 /**
  * 描述 點擊更換顏色幻燈片
@@ -152,8 +161,8 @@ function getDom() {
  * @param {any} pageData 
  * @returns {any}
  */
-function colorChange(colorRGB,pageData) {
-    let colorImg = pageData[0].color.filter(x=>x.RGB==colorRGB);
+function colorChange(colorRGB, pageData) {
+    let colorImg = pageData[0].color.filter(x => x.RGB == colorRGB);
     addCarousel(colorImg[0].url);
 }
 /**
@@ -162,9 +171,9 @@ function colorChange(colorRGB,pageData) {
  * @param {any} e
  * @returns {any}
  */
-function dipslay_price(e){
-    let str =e.target.dataset.nt;
+function dipslay_price(e) {
+    let str = e.target.dataset.nt;
     console.log(str)
-    dipslay.innerText=`NT$${str}`;
+    dipslay.innerText = `NT$${str}`;
 }
 //#endregion
