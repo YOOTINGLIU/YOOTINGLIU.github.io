@@ -1,0 +1,31 @@
+table{
+    table-layout: fixed;
+}
+td{
+    /* height: 70px; */
+}
+
+h6{
+    display: inline-block;
+    pointer-events: none;
+}
+button{
+}   
+td ul{
+    padding: 0;
+    margin: 0;
+    pointer-events: none;
+}
+td ul li{
+    list-style: none;
+    font-size: 12px;
+    margin-left: 10px;
+    pointer-events: none;
+}
+td:hover{
+    /* cursor: pointer; */
+}
+td ul li button{
+    padding: 0;
+    display: inline-block;
+}

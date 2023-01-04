@@ -53,7 +53,7 @@ let price, specification, colorBtns, dipslay, spec_btns;
 //#endregion
 //#region windowonlord
 window.onload = () => {
-    // UpPage("IPhone");//初始化頁面 顯示IPhone
+    UpPage("IPhone");//初始化頁面 顯示IPhone
     page_Btns.forEach(page_btn => page_btn.addEventListener('click', ChangePage));
 };
 //#endregion
@@ -107,11 +107,31 @@ function addCarousel(pageData) {//增加投影片
     <span class="visually-hidden">Next</span>
   </button>`;
     const carousel_inner = document.querySelector('.carousel-inner');
-    carousel_inner.innerHTML="";
-    pageData.forEach(img => {
-        let str = `<div class="carousel-item active"><img src="${img}" class="d-block w-100" alt="..."></div>`;
-        carousel_inner.innerHTML += str;
-    })
+    carousel_inner.innerHTML = "";
+    // pageData.forEach(img => {
+    //     let i = 0;
+    //     if (i == 0) {
+    //         let str = `<div class="carousel-item active"><img src="${img}" class="d-block w-100" alt="..."></div>`;
+    //         carousel_inner.innerHTML += str;
+    //     }
+    //     else {
+    //         let str = `<div class="carousel-item"><img src="${img}" class="d-block w-100" alt="..."></div>`;
+    //         carousel_inner.innerHTML += str;
+    //     }
+    //     i++;
+    //     // let str = `<div class="carousel-item active"><img src="${img}" class="d-block w-100" alt="..."></div>`;
+    //     // carousel_inner.innerHTML += str;
+    // })
+    for (let i = 0; i < pageData.length; i++) {
+        if (i == 0) {
+            let str = `<div class="carousel-item active"><img src="${pageData[i]}" class="d-block w-100" alt="..."></div>`;
+            carousel_inner.innerHTML += str;
+        }
+        else {
+            let str = `<div class="carousel-item"><img src="${pageData[i]}" class="d-block w-100" alt="..."></div>`;
+            carousel_inner.innerHTML += str;
+        }
+    }
 }
 /**
  * 描述 增加color 按鈕到畫面上
