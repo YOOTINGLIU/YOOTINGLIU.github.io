@@ -1,36 +1,36 @@
 //#region 變數
 let todoListArray = [
-    {
-        id: '2023-01-02',
-        todolist: [
-            {
-                time: '18:00',
-                title: '做飯',
-                content: '做咖哩飯，牛排'
-            },
-            {
-                time: '19:00',
-                title: '看電視',
-                content: '看美劇'
-            },
-            {
-                time: '20:00',
-                title: '打電動',
-                content: '打魔獸，手游'
-            }
-        ]
+    // {
+    //     id: '2023-01-02',
+    //     todolist: [
+    //         {
+    //             time: '18:00',
+    //             title: '做飯',
+    //             content: '做咖哩飯，牛排'
+    //         },
+    //         {
+    //             time: '19:00',
+    //             title: '看電視',
+    //             content: '看美劇'
+    //         },
+    //         {
+    //             time: '20:00',
+    //             title: '打電動',
+    //             content: '打魔獸，手游'
+    //         }
+    //     ]
 
-    },
-    {
-        id: '2023-01-05',
-        todolist: [
-            {
-                time: '18:00',
-                title: '做飯',
-                content: '做咖哩飯，牛排'
-            }
-        ]
-    }
+    // },
+    // {
+    //     id: '2023-01-05',
+    //     todolist: [
+    //         {
+    //             time: '18:00',
+    //             title: '做飯',
+    //             content: '做咖哩飯，牛排'
+    //         }
+    //     ]
+    // }
 ]
 
 const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
@@ -55,6 +55,7 @@ const editBtn = document.querySelector('.editBtn');
 window.onload = () => {
     load();
     initBtns();
+    downLocalstorage()
     addTodoListToClander()
     addBtnschedule.addEventListener('click', function () {
         titleDateTime()
@@ -272,18 +273,27 @@ function getTolistDOM() {
     let todoListContent = document.querySelector(".todoListContent").value;
 }
 
-downLocalstorage()
+/**
+ * 描述 將資料上傳至loca
+ * @date 2023-01-06
+ * @returns {any}
+ */
 function upLocalstorage() {
     localStorage.removeItem('locaData');
     let dataStr = JSON.stringify(todoListArray);
     localStorage.setItem('locaData', dataStr);
 }
-
+/**
+ * 描述 將loca下載至本地端
+ * @date 2023-01-06
+ * @returns {any}
+ */
 function downLocalstorage() {
-    let test;
+    // let test;
     let datastr = localStorage.getItem('locaData')
-    test = JSON.parse(datastr);
-    console.log(test)
+    todoListArray = JSON.parse(datastr);
+    console.log(todoListArray)
     
 }
+
 //#endregion
