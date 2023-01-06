@@ -289,10 +289,8 @@ function upLocalstorage() {
  * @returns {any}
  */
 function downLocalstorage() {
-    // let test;
     let datastr = localStorage.getItem('locaData')
     todoListArray = JSON.parse(datastr);
-    console.log(todoListArray)
     
 }
 
