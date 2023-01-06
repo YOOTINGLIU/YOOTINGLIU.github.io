@@ -1,7 +1,14 @@
 table{
     table-layout: fixed;
 }
+tbody{
+    /* height: 70vh; */
+}
 td{
+    min-height: 70px;
+    height: 70px;
+    /* height: 100%; */
+    box-sizing: border-box;
     /* height: 70px; */
 }
 
@@ -11,10 +18,14 @@ h6{
 }
 button{
 }   
+td div{
+    pointer-events: none;
+}
 td ul{
     padding: 0;
     margin: 0;
     pointer-events: none;
+    display: block;
 }
 td ul li{
     list-style: none;

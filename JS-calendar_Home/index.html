@@ -40,26 +40,19 @@
                 <tr>
                     <td class="d-flex ">
                         <h6 class="text-center fs-5">1</h6>
-                        <ul>
-                            <li>
-                                0930:去買菜
-                            </li>
-                            <li>
-                                0930:去買菜
-                            </li>
-                            <li>
-                                0930:去買菜
-                            </li>
 
-                        </ul>
                     </td>
                     <td>
                         <h6 class="text-center fs-5"></h6>
                         <ul>
-                          
+
                         </ul>
                     </td>
-                    <td></td>
+                    <td>
+
+                        <div>jjkk</div>
+
+                    </td>
                     <td></td>
                     <td></td>
                     <td></td>
@@ -112,32 +105,76 @@
                 </tr>
             </tbody>
         </table>
- <!-- Button trigger modal -->
-<!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+        <!-- Button trigger modal -->
+        <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
     Launch static backdrop modal
   </button> -->
-  
-  <!-- Modal -->
-  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          ...
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">關閉</button>
-          <button type="button" class="btn btn-primary">增加行程</button>
-        </div>
-      </div>
-    </div>
-  </div>
 
- 
- 
+        <!-- Modal  第一層 -->
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- <div class="todolist border rounded-1 border-secondary p-2 mb-4">
+                            <div class="title fs-4 mb-2 d-flex justify-content-between">
+                                <p>買菜</p>
+                                <div class="edit-btns">
+                                    <button id="deleteBtn" type="button" class="fs-6 btn btn-danger deleteBtn">刪除</button>
+                                    <button type="button" class="fs-6 btn btn-primary editBtn " data-bs-toggle="modal"  data-bs-target="#exampleModal">編輯</button>
+                                </div>
+                            </div>
+                            <div class="time mb-2">時間: 18:00</div>
+                            <div class="content"> 青椒、牛肉</div>
+                        </div> -->
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">關閉</button>
+                        <button type="button" class="btn btn-primary addBtn" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal">增加行程</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Modal 第二層 -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body-2 ">
+                        <div class="d-flex mt-4">
+                            <label for="">時間:</label>
+                            <input class="todoListTime" type="time" value="">
+                        </div>
+                        <div class="d-flex mt-4">
+                            <label for="">標題:</label>
+                            <input class="todoListTitle " type="text" value="">
+                        </div>
+                        <div class="d-flex mt-4 mb-4">
+                            <label for="">內容:</label>
+                            <input class="todoListContent" type="text" value="">
+                        </div>
+
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">關閉</button>
+                        <button type="button" class="btn btn-primary createBtn" data-bs-toggle="modal" data-bs-target="#staticBackdrop" >儲存/更變行程</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 
 
