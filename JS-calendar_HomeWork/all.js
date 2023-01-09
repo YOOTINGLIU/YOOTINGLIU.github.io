@@ -255,10 +255,9 @@ function modal_bodyAddlist(listArray) {
 function addModal1List(date) {
     document.querySelector('.modal-title').innerText = date;
     let listArray = todoListArray.filter(x => x.id == date)[0];
-    if (listArray == null) return;//做個防呆 1/9
     let modal_body = document.querySelector('.modal-body')
     modal_body.innerHTML = "";
-    if (listArray === undefined || listArray === null) return;
+    // if (listArray === undefined || listArray === null) return;
     modal_bodyAddlist(listArray.todolist);
 
     let deleteBtns = document.querySelectorAll('.deleteBtn');
