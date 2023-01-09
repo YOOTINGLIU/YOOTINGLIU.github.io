@@ -169,7 +169,8 @@ function load() {
             tds[i - 1].setAttribute("data-bs-target", `#staticBackdrop`);
             tds[i - 1].addEventListener('click', (e) => {
                 date = e.target.dataset.date;
-                addModal1List(date)
+                let tempdata=date;
+                addModal1List(tempdata);
             })
         }
 
@@ -187,10 +188,16 @@ function initBtns() {
     nextBtn.addEventListener('click', () => {
         nav++;
         load();
+    addTodoListToClander();
+
+        // addTodoListToClander();
+        // addModal1List(time)
     });
     backBtn.addEventListener('click', () => {
         nav--;
         load();
+    addTodoListToClander();
+
     });
 
 }
