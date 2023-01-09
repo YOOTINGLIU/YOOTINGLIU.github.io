@@ -214,7 +214,7 @@ function addTodoListToClander() {
                 text.innerHTML = "";
                 todolist.todolist.forEach(todo => {
                     text.innerHTML += `
-                    <div>${todo.time}:${todo.title}
+                    <div>${todo.time}: ${todo.title}
                     </div>`
                 })
             }
@@ -236,13 +236,13 @@ function modal_bodyAddlist(listArray) {
             <p>${list.title}</p>
             <div class="edit-btns">
                 <button type="button" class="fs-6 btn btn-danger deleteBtn " data-index="${index}">刪除</button>
-                <button type="button" class="fs-6 btn btn-primary editBtn " data-bs-toggle="modal"
-                    data-bs-target="#exampleModal">編輯</button>
+              
             </div>
         </div>
         <div class="time mb-2">時間: ${list.time}</div>
         <div class="content">${list.content}</div>
     </div>`;
+    // <button type="button" class="fs-6 btn btn-primary editBtn ">編輯</button>
     })
 }
 
@@ -257,7 +257,7 @@ function addModal1List(date) {
     let listArray = todoListArray.filter(x => x.id == date)[0];
     let modal_body = document.querySelector('.modal-body')
     modal_body.innerHTML = "";
-    // if (listArray === undefined || listArray === null) return;
+    if (listArray === undefined || listArray === null) return;
     modal_bodyAddlist(listArray.todolist);
 
     let deleteBtns = document.querySelectorAll('.deleteBtn');
