@@ -1,38 +1,38 @@
 //#region 變數
-let todoListArray = [
-    // {
-    //     id: '2023-01-02',
-    //     todolist: [
-    //         {
-    //             time: '18:00',
-    //             title: '做飯',
-    //             content: '做咖哩飯，牛排'
-    //         },
-    //         {
-    //             time: '19:00',
-    //             title: '看電視',
-    //             content: '看美劇'
-    //         },
-    //         {
-    //             time: '20:00',
-    //             title: '打電動',
-    //             content: '打魔獸，手游'
-    //         }
-    //     ]
+// let todoListArray = [
+// {
+//     id: '2023-01-02',
+//     todolist: [
+//         {
+//             time: '18:00',
+//             title: '做飯',
+//             content: '做咖哩飯，牛排'
+//         },
+//         {
+//             time: '19:00',
+//             title: '看電視',
+//             content: '看美劇'
+//         },
+//         {
+//             time: '20:00',
+//             title: '打電動',
+//             content: '打魔獸，手游'
+//         }
+//     ]
 
-    // },
-    // {
-    //     id: '2023-01-05',
-    //     todolist: [
-    //         {
-    //             time: '18:00',
-    //             title: '做飯',
-    //             content: '做咖哩飯，牛排'
-    //         }
-    //     ]
-    // }
-]||JSON.parse(localStorage.getItem('locaData'));
-
+// },
+// {
+//     id: '2023-01-05',
+//     todolist: [
+//         // {
+//         //     time: '18:00',
+//         //     title: '做飯',
+//         //     content: '做咖哩飯，牛排'
+//         // }
+//     ]
+// }
+// ]// || JSON.parse(localStorage.getItem('locaData'));
+let todoListArray=[];
 const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 let date;
 let nav = 0;
@@ -53,9 +53,11 @@ const editBtn = document.querySelector('.editBtn');
 //#endregion
 //#region 網頁初始化
 window.onload = () => {
+
+    downLocalstorage()
     load();
     initBtns();
-    downLocalstorage()
+
     addTodoListToClander()
     addBtnschedule.addEventListener('click', function () {
         titleDateTime()
@@ -198,7 +200,6 @@ function initBtns() {
  * @returns {any}
  */
 function addTodoListToClander() {
-    if(todoListArray.length===0)return//先增加這行做個防錯看看1/9
     todoListArray.forEach(todolist => {
         tds.forEach(td => {
             if (td.dataset.date == todolist.id) {
@@ -247,7 +248,7 @@ function modal_bodyAddlist(listArray) {
 function addModal1List(date) {
     document.querySelector('.modal-title').innerText = date;
     let listArray = todoListArray.filter(x => x.id == date)[0];
-    if(listArray==null)return;//做個防呆 1/9
+    if (listArray == null) return;//做個防呆 1/9
     let modal_body = document.querySelector('.modal-body')
     modal_body.innerHTML = "";
     if (listArray === undefined || listArray === null) return;
@@ -291,9 +292,10 @@ function upLocalstorage() {
  * @returns {any}
  */
 function downLocalstorage() {
-    let datastr = localStorage.getItem('locaData')
+    let datastr = localStorage.getItem('locaData') === null ? JSON.stringify([{ id: '2023-01-05', todolist: []},{ id: '2023-01-06', todolist: []}]) : localStorage.getItem('locaData');
+    // debugger
     todoListArray = JSON.parse(datastr);
-    
+    upLocalstorage()
 }
 
 //#endregion
