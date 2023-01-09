@@ -31,7 +31,7 @@ let todoListArray = [
     //         }
     //     ]
     // }
-]
+]||JSON.parse(localStorage.getItem('locaData'));
 
 const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 let date;
@@ -198,6 +198,7 @@ function initBtns() {
  * @returns {any}
  */
 function addTodoListToClander() {
+    if(todoListArray.length===0)return//先增加這行做個防錯看看1/9
     todoListArray.forEach(todolist => {
         tds.forEach(td => {
             if (td.dataset.date == todolist.id) {
@@ -246,6 +247,7 @@ function modal_bodyAddlist(listArray) {
 function addModal1List(date) {
     document.querySelector('.modal-title').innerText = date;
     let listArray = todoListArray.filter(x => x.id == date)[0];
+    if(listArray==null)return;//做個防呆 1/9
     let modal_body = document.querySelector('.modal-body')
     modal_body.innerHTML = "";
     if (listArray === undefined || listArray === null) return;
