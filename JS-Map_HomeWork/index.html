@@ -21,6 +21,12 @@
         integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./style.css">
+
+    <!-- jquery連結 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- JQurey 分頁套件 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/simplePagination.js/1.6/jquery.simplePagination.js"></script>
+
 </head>
 
 
@@ -33,7 +39,7 @@
             <div class="col-6">
                 <div class="row">
                     <div class="form-group col-6">
-                        <label for="county" class="">高雄地區</label>
+                        <label for="county" class="fs-2">高雄地區景點一覽</label>
                         <select id="county" class="form-control">
                             <!-- <option value="">--請選擇行政區--</option> -->
                             <!-- option -->
@@ -41,25 +47,25 @@
                     </div>
                 </div>
                 <div class="row">
-                    <h2 class="w-100 ">
-                        <strong></strong>
-
-                    </h2>
                     <div class="col-12">
-                        <table class="table table-bordered table-striped text-center">
-                            <thead>
+                        <h2 class="w-100 ">
+                            <strong></strong>
+                        </h2>
+                    </div>
 
-                            </thead>
-                            <tbody>
+                    <div class="col-12 ">
+                        <div class="row cards" style="overflow:scroll;height:70vh;overflow-X:hidden;">
 
-                            </tbody>
-                        </table>
+                        </div>
+                        <!-- 顯示分頁 -->
+                        <div id="pagination-container"></div>
+                        <!-- 頁尾 -->
+                        <div class="footer">
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-    <!-- <template>
+            <!-- <template>
         <h5>三民區</h5>
         <img class="w-75" src="" alt="">
         <p>content</p>
@@ -70,126 +76,185 @@
 
 
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
-        crossorigin="anonymous"></script>
-    <script>
-        //#region 變數宣告
-        const url = "https://api.kcg.gov.tw/api/service/Get/9c8e1450-e833-499c-8320-29b36b7ace5c";
-        let kSAttractionsData = [];
-        let markers = L.markerClusterGroup();//增加markericon至地圖上
-        //#endregion
-        //#region DOM
-        const county = document.querySelector("#county");
-        let map;
-        //#endregion
-        //#region function
-        function initMap() {
-            //初始地圖
-            map = L.map('map', {
-                center: [22.62716, 120.34393],
-                zoom: 10
-            })
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+                crossorigin="anonymous"></script>
+            
+            <script>
+                //#region 變數宣告
+                const url = "https://api.kcg.gov.tw/api/service/Get/9c8e1450-e833-499c-8320-29b36b7ace5c";
+                let kSAttractionsData = [];
+                let markers = L.markerClusterGroup();//增加markericon至地圖上
+                const cardDisplayPage = 4;
+                //#endregion
+                //#region DOM
+                const county = document.querySelector("#county");
+                const cards = document.querySelector(".cards");
 
-            let osmUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
-            let osm = new L.TileLayer(osmUrl, { minZoom: 8, maxZoom: 19 });
-            map.addLayer(osm);
-        }
+                let map;
+                //#endregion
+                //#region function
+                /**
+                 * 描述 設定地圖
+                 * @date 2023-01-12
+                 * @returns {any}
+                 */
+                function initMap() {
+                    //初始地圖
+                    map = L.map('map', {
+                        center: [22.62716, 120.34393],
+                        zoom: 10
+                    })
 
-        function setMapData() {
-            let rql = new Request(url, { method: "GET" })
-            fetch(rql)
-                .then(res => res.json())
-                .then(jsonData => {
-                    let dataArray;
-                    dataArray = jsonData.data.XML_Head.Infos.Info;
-                    dataArray.forEach(x => {
-                        let area = x.Add.substr(6, x.Add.indexOf('區') - 5);//高雄地區
-                        let str = x.Add.substr(0, 3);
-                        kSAttractionsData.push({ area: area, name: x.Name, openTime: x.Opentime, img: x.Picture1, content: x.Toldescribe, py: x.Px, px: x.Py, add: x.Add, tel: x.Tel })
-                    });
-                    addOption()
-                    areaChange()
-                })
-
-        }
-
-        function addOption() {
-            let areaOption = [];
-
-            kSAttractionsData.forEach(x => {
-                areaOption.push(x.area)
-            })
-            areaOption = ["--請選擇行政區--", ...new Set(areaOption)];
-
-            areaOption.forEach(x => {
-                let option = document.createElement('option');
-                option.innerText = x;
-                option.value = x == "--請選擇行政區--" ? "" : x;
-                county.appendChild(option);
-            })
-
-        }
-
-        function areaChange() {
-            county.addEventListener('change', function () {
-                if (markers) markers.clearLayers(); //清空地圖所有標籤
-
-                let str = this.value;
-                let strong = document.querySelector('strong');
-                strong.innerText = `高雄 ${str}`
-                let areaData = kSAttractionsData.filter(x => x.area == str);
-                if (str != '') {
-                    map.setView([areaData[1].px, areaData[1].py, 8]);
+                    let osmUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+                    let osm = new L.TileLayer(osmUrl, { minZoom: 8, maxZoom: 19 });
+                    map.addLayer(osm);
                 }
-                map.setZoom(13);
-                areaData.forEach(area => {
-                    let center = [area.px, area.py];
-                    let marker = L.marker(center,);
-                    marker.bindPopup(
-                        `<h5>${area.name}</h5>
-                    <img class="w-75 " src="${area.img}" alt="">
-                    <p>電話:${area.tel}</p>
-                    <p>地址:${area.add}</p>
-                    <p>開放時間:${area.openTime}</p>
-                    <p>${area.content}</p>
-                    `)
 
-                    // console.log(area)
-                    // console.log(marker)
-                    markers.addLayer(marker);
+                function setMapPage() {
+                    let rql = new Request(url, { method: "GET" })
+                    fetch(rql)
+                        .then(res => res.json())
+                        .then(jsonData => {
+                            let dataArray;
+                            dataArray = jsonData.data.XML_Head.Infos.Info;
+                            dataArray.forEach(x => {
+                                let area = x.Add.substr(6, x.Add.indexOf('區') - 5);//高雄地區
+                                let str = x.Add.substr(0, 3);
+                                kSAttractionsData.push({ area: area, name: x.Name, openTime: x.Opentime, img: x.Picture1, content: x.Toldescribe, py: x.Px, px: x.Py, add: x.Add, tel: x.Tel })
+                            });
+                            addOption()
+                            areaChange()
+                        })
 
-                })
-                // let marker =L.marker()
-                map.addLayer(markers)
-                console.log(markers)
-            })
+                }
 
-        }
-        //#endregion
-        //#region windowonload
-        window.onload = function () {
-            initMap();
-            setMapData()
+                /**
+                 * 描述 動態增加selecet option
+                 * @date 2023-01-12
+                 * @returns {any}
+                 */
+                function addOption() {
+                    let areaOption = [];
 
-        }
+                    kSAttractionsData.forEach(x => {
+                        areaOption.push(x.area)
+                    })
+                    areaOption = ["--請選擇行政區--", ...new Set(areaOption)];
 
-        //#endregion
+                    areaOption.forEach(x => {
+                        let option = document.createElement('option');
+                        option.innerText = x;
+                        option.value = x == "--請選擇行政區--" ? "" : x;
+                        county.appendChild(option);
+                    })
 
-        Array.prototype.groupBy = function (prop) {
-            return this.reduce(function (groups, item) {
-                const val = item[prop]
-                groups[val] = groups[val] || []
-                // if (groups[val] == undefined) {
-                //     groups[val] = []
-                // } else {
-                //     groups[val] = groups[val]
-                // }
-                groups[val].push(item)
-                return groups
-            }, {})
-        }
-    </script>
+                }
+
+                /**
+                 * 描述 選擇地區 並增加Marker
+                 * @date 2023-01-12
+                 * @returns {any}
+                 */
+                function areaChange() {
+                    county.addEventListener('change', function () {
+                        if (markers) markers.clearLayers(); //清空地圖所有標籤
+                        let str = this.value;
+                        let strong = document.querySelector('strong');
+                        strong.innerText = `${str}`
+                        let areaData = kSAttractionsData.filter(x => x.area == str);
+                        if (areaData.length != 0) {
+                            map.setView([areaData[0].px, areaData[0].py, 8]);
+                            // map.setZoom(12);
+                        }
+                        cards.innerHTML = " ";//清空卡片區所有東西
+                        areaData.forEach(area => {
+                            let center = [area.px, area.py];
+                            let marker = L.marker(center,);
+                            marker.bindPopup(
+                                `<h5>${area.name}</h5>
+                                 <img class="w-75 " src="${area.img}" alt="">
+                                 <p style="overflow:scroll;height:80px;overflow-X:hidden;">
+                                  電話:${area.tel}</br>
+                                 地址:${area.add}</br>
+                                 開放時間:${area.openTime}</br>
+                                ${area.content}</p>
+                                `)
+                            markers.addLayer(marker);
+                            addCrads(area);
+                        })
+                        // let marker =L.marker()
+
+
+                        map.addLayer(markers)
+                        console.log(markers)
+                    })
+                    // pagination()
+                    
+                }
+                /**
+                 * 描述 增加卡片到右方圖片上
+                 * @date 2023-01-12
+                 * @returns {any} 每一筆資料
+                 */
+                function addCrads(area) {
+                    let str = `<div class="col-6 mb-3 ">
+                                <div class="card w-100 h-100" style="">
+                                    <img src="${area.img}" class="card-img-top " alt="...">
+                                    <div class="card-body">
+                                        <h5 class="card-title fs-5 ">${area.name}</h5>
+                                        <p class="card-text mb-0 ">電話:${area.tel}</p>
+                                        <p class="card-text mb-0" style="overflow:scroll;height:40px;overflow-X:hidden;">地址:${area.add}</p>
+                                    </div>
+                                </div>
+                            </div>`
+
+                    cards.innerHTML += str;
+
+                }
+                // 分頁 使用jQuery 套件 
+                function pagination() {
+                    var numItem = $('.card').length;
+                    $('.card').slice(cardDisplayPage).hide();
+                    $('#pagination-container').pagination({
+                        items: numItem,
+                        itemsOnPage: cardDisplayPage,
+                        prevText: "&elaquo;",
+                        nextText: "&raquo;",
+                        onPageClick: function (pageNumber) {
+                            // 計算起始
+                            var form = cardDisplayPage * (pageNumber - 1);
+                            // 計算結束
+                            var to = form + cardDisplayPage;
+                            // 取得資料 將所有資料隱藏>對資料做切割(form到to)>顯示切割的資料
+                            $(".container").hide().slice(form, to).show();
+                        }
+                    })
+                }
+                //#endregion
+                //#region windowonload
+                window.onload = function () {
+                    initMap();
+                    setMapPage()
+
+                }
+
+                //#endregion
+
+                Array.prototype.groupBy = function (prop) {
+                    return this.reduce(function (groups, item) {
+                        const val = item[prop]
+                        groups[val] = groups[val] || []
+                        // if (groups[val] == undefined) {
+                        //     groups[val] = []
+                        // } else {
+                        //     groups[val] = groups[val]
+                        // }
+                        groups[val].push(item)
+                        return groups
+                    }, {})
+                }
+            </script>
 </body>
 
 </html>
