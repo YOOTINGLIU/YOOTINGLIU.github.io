@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>高雄市景點地圖</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+
+    <!-- map -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+        integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+        crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+        crossorigin=""></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css" />
+    <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+
+<body>
+    <div class="container">
+        <div class="row py-5">
+            <div class="col-6">
+                <div id="map"></div>
+            </div>
+            <div class="col-6">
+                <div class="row">
+                    <div class="form-group col-6">
+                        <label for="county" class="">高雄地區</label>
+                        <select id="county" class="form-control">
+                            <!-- <option value="">--請選擇行政區--</option> -->
+                            <!-- option -->
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <h2 class="w-100 ">
+                        <strong></strong>
+
+                    </h2>
+                    <div class="col-12">
+                        <table class="table table-bordered table-striped text-center">
+                            <thead>
+
+                            </thead>
+                            <tbody>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <template>
+        <h5>三民區</h5>
+        <img class="w-75" src="" alt="">
+        <p>content</p>
+        <p>tel</p>
+        <p>add</p>
+    </template> -->
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+    <script>
+        //#region 變數宣告
+        const url = "https://api.kcg.gov.tw/api/service/Get/9c8e1450-e833-499c-8320-29b36b7ace5c";
+        let kSAttractionsData = [];
+        let markers = L.markerClusterGroup();//增加markericon至地圖上
+        //#endregion
+        //#region DOM
+        const county = document.querySelector("#county");
+        let map;
+        //#endregion
+        //#region function
+        function initMap() {
+            //初始地圖
+            map = L.map('map', {
+                center: [22.62716, 120.34393],
+                zoom: 10
+            })
+
+            let osmUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+            let osm = new L.TileLayer(osmUrl, { minZoom: 8, maxZoom: 19 });
+            map.addLayer(osm);
+        }
+
+        function setMapData() {
+            let rql = new Request(url, { method: "GET" })
+            fetch(rql)
+                .then(res => res.json())
+                .then(jsonData => {
+                    let dataArray;
+                    dataArray = jsonData.data.XML_Head.Infos.Info;
+                    dataArray.forEach(x => {
+                        let area = x.Add.substr(6, x.Add.indexOf('區') - 5);//高雄地區
+                        let str = x.Add.substr(0, 3);
+                        kSAttractionsData.push({ area: area, name: x.Name, openTime: x.Opentime, img: x.Picture1, content: x.Toldescribe, py: x.Px, px: x.Py, add: x.Add, tel: x.Tel })
+                    });
+                    addOption()
+                    areaChange()
+                })
+
+        }
+
+        function addOption() {
+            let areaOption = [];
+
+            kSAttractionsData.forEach(x => {
+                areaOption.push(x.area)
+            })
+            areaOption = ["--請選擇行政區--", ...new Set(areaOption)];
+
+            areaOption.forEach(x => {
+                let option = document.createElement('option');
+                option.innerText = x;
+                option.value = x == "--請選擇行政區--" ? "" : x;
+                county.appendChild(option);
+            })
+
+        }
+
+        function areaChange() {
+            county.addEventListener('change', function () {
+                if (markers) markers.clearLayers(); //清空地圖所有標籤
+
+                let str = this.value;
+                let strong = document.querySelector('strong');
+                strong.innerText = `高雄 ${str}`
+                let areaData = kSAttractionsData.filter(x => x.area == str);
+                if (str != '') {
+                    map.setView([areaData[1].px, areaData[1].py, 8]);
+                }
+                map.setZoom(13);
+                areaData.forEach(area => {
+                    let center = [area.px, area.py];
+                    let marker = L.marker(center,);
+                    marker.bindPopup(
+                        `<h5>${area.name}</h5>
+                    <img class="w-75 " src="${area.img}" alt="">
+                    <p>電話:${area.tel}</p>
+                    <p>地址:${area.add}</p>
+                    <p>開放時間:${area.openTime}</p>
+                    <p>${area.content}</p>
+                    `)
+
+                    // console.log(area)
+                    // console.log(marker)
+                    markers.addLayer(marker);
+
+                })
+                // let marker =L.marker()
+                map.addLayer(markers)
+                console.log(markers)
+            })
+
+        }
+        //#endregion
+        //#region windowonload
+        window.onload = function () {
+            initMap();
+            setMapData()
+
+        }
+
+        //#endregion
+
+        Array.prototype.groupBy = function (prop) {
+            return this.reduce(function (groups, item) {
+                const val = item[prop]
+                groups[val] = groups[val] || []
+                // if (groups[val] == undefined) {
+                //     groups[val] = []
+                // } else {
+                //     groups[val] = groups[val]
+                // }
+                groups[val].push(item)
+                return groups
+            }, {})
+        }
+    </script>
+</body>
+
+</html>
