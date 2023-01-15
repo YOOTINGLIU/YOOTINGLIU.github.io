@@ -108,20 +108,7 @@ function addCarousel(pageData) {//增加投影片
   </button>`;
     const carousel_inner = document.querySelector('.carousel-inner');
     carousel_inner.innerHTML = "";
-    // pageData.forEach(img => {
-    //     let i = 0;
-    //     if (i == 0) {
-    //         let str = `<div class="carousel-item active"><img src="${img}" class="d-block w-100" alt="..."></div>`;
-    //         carousel_inner.innerHTML += str;
-    //     }
-    //     else {
-    //         let str = `<div class="carousel-item"><img src="${img}" class="d-block w-100" alt="..."></div>`;
-    //         carousel_inner.innerHTML += str;
-    //     }
-    //     i++;
-    //     // let str = `<div class="carousel-item active"><img src="${img}" class="d-block w-100" alt="..."></div>`;
-    //     // carousel_inner.innerHTML += str;
-    // })
+
     for (let i = 0; i < pageData.length; i++) {
         if (i == 0) {
             let str = `<div class="carousel-item active"><img src="${pageData[i]}" class="d-block w-100" alt="..."></div>`;
