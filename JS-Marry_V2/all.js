@@ -62,7 +62,8 @@ function countdown() {
         display_Time.innerText=timeCount;
         alert('時間到了')
         btn_Start.disabled = false;
-        timeCount = 10;
+        timeCount=60;
+        display_Time.innerText=timeCount;
     }
 
 }
