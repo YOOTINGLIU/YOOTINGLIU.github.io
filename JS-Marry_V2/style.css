@@ -1,0 +1,40 @@
+.title h2{
+    font-size: 48px;
+}
+.grassland{
+    background-image: url(./pic/31907.png);
+    background-position: center;
+    background-size: cover;
+}
+[burrow]{
+height: 150px;
+
+
+}
+.burrow{
+    margin: auto;
+    margin-top: 12%;
+    width: 75%;
+    height: 50%;
+    background-color: black;
+    border-radius: 50% / 50%;
+    box-shadow: 0px 10px 5px #666;
+    position: relative;
+    overflow: hidden;
+}
+.burrow.active{
+    overflow: inherit;
+}
+.gophers{
+    
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: -40px;
+    /* transition: all 0.3s ease-in-out; */
+}
+.gophers.active{
+    top:-90px;
+    
+
+}
