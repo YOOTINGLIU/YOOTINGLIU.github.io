@@ -2,7 +2,7 @@
 let steps;
 let lastRomdon = 0;
 let time;
-let timeCount = 10;
+let timeCount = 60;
 let speed = 800;
 let scroe ;
 //#endregion
