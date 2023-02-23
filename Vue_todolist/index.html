@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>備忘錄清單</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+  <link rel="stylesheet" href="./style.css">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+</head>
+
+<body>
+
+
+  <div class="container">
+    <div class="row justify-content-center" id="toList">
+      <div class="col-12 text-center">
+        <h2>代辦清單</h2>
+      </div>
+      <div class="col-12">
+        <input type="text" class="text w-75" placeholder="請填寫代辦內容" required v-model="inputText">
+        <button type="button" class="send btn btn-primary" @click="SaveData">加入代辦</button>
+      </div>
+      <div class="col-12 my-4">
+        <ul class="list ">
+          <li class="w-50 mt-2 input-group" v-for="(item, index) in toListData" :key="index">
+            <div class="input-group-text">
+              <input class="form-check-input mt-0" type="checkbox" value=""
+                aria-label="Checkbox for following text input" @click="chenked(index)"  v-model="item.chenk">
+            </div>
+            <input class="todoList form-control " type="text" :readonly="!item.isEdit" v-model="item.text">
+            <button type="button" @click="EditAndSave(index)" editList="edit"
+              :class="['editList ms-2 btn', item.btnColor]">{{item.btnText}}</button>
+            <button type="button" @click="Delete(index)" deleteList class="deleteList ms-2 btn btn-danger">刪除</button>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+    crossorigin="anonymous"></script>
+  <script>
+    const key = 'agencyData';
+    const app = new Vue(
+      {
+        el: '#toList',
+        data() {
+          return {
+            inputText: '',
+            toListData: [],
+          }
+        },
+        methods: {
+          SaveData() {
+            if(this.inputText==='')return;
+            this.toListData.push({ chenk: false, text: this.inputText, isEdit: false, btnText: '編輯', btnColor:'btn-warning'});
+            this.inputText = '';
+            localStorage.setItem(key, JSON.stringify(this.toListData));
+          },
+          Delete(index) {
+            this.toListData.splice(index, 1);
+            localStorage.setItem(key, JSON.stringify(this.toListData));
+          },
+          EditAndSave(index) {
+            this.toListData[index].isEdit = !this.toListData[index].isEdit;
+            this.toListData[index].btnColor = this.toListData[index].isEdit ? 'btn-success' :'btn-warning';
+            this.toListData[index].btnText = this.toListData[index].isEdit ? '保存' : '編輯';
+            localStorage.setItem(key, JSON.stringify(this.toListData));
+          },
+          chenked(index){
+            this.toListData[index].chenk=!this.toListData[index].chenk
+            localStorage.setItem(key, JSON.stringify(this.toListData));
+          }
+        },
+        mounted() {
+          this.toListData = JSON.parse(localStorage.getItem(key)) || [];
+        },
+
+      })
+
+  </script>
+
+
+</body>
+
+</html>
