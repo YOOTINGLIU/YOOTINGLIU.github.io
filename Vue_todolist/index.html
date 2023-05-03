@@ -27,7 +27,7 @@
         <ul class="list ">
           <li class="w-50 mt-2 input-group" v-for="(item, index) in toListData" :key="index">
             <div class="input-group-text">
-              <input class="form-check-input mt-0" type="checkbox" value=""
+              <input class="form-check-input mt-0"  type="checkbox" value=""
                 aria-label="Checkbox for following text input" @click="chenked(index)"  v-model="item.chenk">
             </div>
             <input class="todoList form-control " type="text" :readonly="!item.isEdit" v-model="item.text">
@@ -35,7 +35,6 @@
               :class="['editList ms-2 btn', item.btnColor]">{{item.btnText}}</button>
             <button type="button" @click="Delete(index)" deleteList class="deleteList ms-2 btn btn-danger">刪除</button>
           </li>
-
         </ul>
       </div>
     </div>
@@ -46,6 +45,7 @@
     crossorigin="anonymous"></script>
   <script>
     const key = 'agencyData';
+    
     const app = new Vue(
       {
         el: '#toList',
@@ -80,7 +80,6 @@
         mounted() {
           this.toListData = JSON.parse(localStorage.getItem(key)) || [];
         },
-
       })
 
   </script>
